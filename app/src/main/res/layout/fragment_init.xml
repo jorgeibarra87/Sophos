@@ -1,14 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background=""
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".InitFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/ivInit"
+        android:layout_width="270dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="56dp"
+        android:contentDescription="logo"
+        android:src="@drawable/imagesophos"
+        tools:background="@drawable/imagesophos"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvEnter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/enter_data"
+        android:textColor="@color/init_text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivInit" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:ems="30"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="20sp"
+        android:textColorHint="@color/init_text_color"
+        android:hint="Email"
+        android:padding="10dp"
+        android:drawableStart="@drawable/user"
+        android:drawablePadding="15dp"
+        android:background="@drawable/border_et"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEnter" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:ems="30"
+        android:inputType="textPassword"
+        android:textAlignment="textStart"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textColorHint="@color/init_text_color"
+        android:drawableStart="@drawable/key_icon"
+        android:drawablePadding="15dp"
+        android:background="@drawable/border_et"
+        android:hint="Password"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:textStyle="bold"
+        android:text="Ingresar"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/border_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="@drawable/border_btnfinger"
+        android:fontFamily="@font/montserrat_regular"
+        android:textStyle="bold"
+        android:textColor="@color/init_text_color"
+        android:text="Ingresar con huella"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
