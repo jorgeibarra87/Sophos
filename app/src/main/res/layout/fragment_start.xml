@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartFragment">
+
+    <ImageView
+        android:id="@+id/ivWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/corporate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity=""
+        android:text="Bienvenido"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvEnter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="200dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Estas son las opciones que tenemos para ti"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
+
+    <RelativeLayout
+        android:id="@+id/relativeDoc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/descrptionshape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivWelcome">
+
+        <TextView
+            android:id="@+id/tvDoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/description"
+            android:drawablePadding="5dp"
+            android:layout_marginStart="18dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Enviar Documentos"
+            android:textColor="#FE1191"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/enter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/tvDoc"
+            android:text="Ingresar"
+            android:textAllCaps="false"
+            android:textColor="#FE1191"
+            android:fontFamily="@font/montserrat_regular"
+            style="?attr/materialButtonOutlinedStyle"
+            app:strokeColor="#FE1191"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:drawableRight="@drawable/arrow_right_alt"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeSeeDoc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/descrptionshape2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeDoc">
+
+        <TextView
+            android:id="@+id/tvSeeDoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/plagiarism"
+            android:drawablePadding="5dp"
+            android:layout_marginStart="18dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Ver Documentos"
+            android:textColor="#4500FF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/enter2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/tvSeeDoc"
+            android:text="Ingresar"
+            android:textAllCaps="false"
+            android:textColor="#4500FF"
+            android:fontFamily="@font/montserrat_regular"
+            style="?attr/materialButtonOutlinedStyle"
+            app:strokeColor="#4500FF"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:drawableRight="@drawable/arrow_right_alt2"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeOffice"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/descrptionshape3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeSeeDoc">
+
+        <TextView
+            android:id="@+id/tvOffice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/location_on"
+            android:drawablePadding="5dp"
+            android:layout_marginStart="18dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Oficinas"
+            android:textColor="#05667C"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/enter3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/tvOffice"
+            android:text="Ingresar"
+            android:textAllCaps="false"
+            android:textColor="#05667C"
+            android:fontFamily="@font/montserrat_regular"
+            style="?attr/materialButtonOutlinedStyle"
+            app:strokeColor="#05667C"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:drawableRight="@drawable/arrow_right_alt3"/>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

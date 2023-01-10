@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background=""
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".InitFragment">
 
@@ -14,7 +13,6 @@
         android:layout_marginTop="56dp"
         android:contentDescription="logo"
         android:src="@drawable/imagesophos"
-        tools:background="@drawable/imagesophos"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,42 +52,56 @@
         android:drawableStart="@drawable/user"
         android:drawablePadding="15dp"
         android:background="@drawable/border_et"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEnter" />
 
-    <EditText
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etPassword"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:ems="30"
-        android:inputType="textPassword"
-        android:textAlignment="textStart"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="20sp"
-        android:padding="10dp"
-        android:textColorHint="@color/init_text_color"
-        android:drawableStart="@drawable/key_icon"
-        android:drawablePadding="15dp"
-        android:background="@drawable/border_et"
+        android:layout_height="wrap_content"
         android:hint="Password"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleDrawable="@drawable/eye"
+        app:passwordToggleTint="@color/init_text_color"
+        android:textColorHint="@color/init_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="15dp"
+        android:drawablePadding="15dp"
+        app:startIconDrawable="@drawable/key_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/border_et"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="20sp"
+
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnEnter"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:fontFamily="@font/montserrat_regular"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:text="Ingresar"
+        android:textAllCaps="false"
         android:layout_marginTop="40dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
@@ -99,20 +111,26 @@
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnFinger"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/border_btnfinger"
-        android:fontFamily="@font/montserrat_regular"
-        android:textStyle="bold"
-        android:textColor="@color/init_text_color"
-        android:text="Ingresar con huella"
-        android:layout_marginTop="20dp"
+        android:layout_height="60dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="15dp"
+        android:padding="10dp"
+        android:drawablePadding="15dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="18sp"
+        android:text="Ingresar con huella"
+        android:textAllCaps="false"
+        style="?attr/materialButtonOutlinedStyle"
+        app:strokeColor="@color/init_text_color"
+        app:strokeWidth="3dp"
+        app:cornerRadius="12dp"
+        android:textStyle="bold"
+        app:icon="@drawable/fingerprint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
+        app:layout_constraintTop_toBottomOf="@+id/btnEnter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
