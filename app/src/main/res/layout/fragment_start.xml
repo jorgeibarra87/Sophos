@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".StartFragment">
 
+
     <ImageView
         android:id="@+id/ivWelcome"
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         android:src="@drawable/corporate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tbStart" />
 
     <TextView
         android:id="@+id/tvWelcome"
@@ -30,7 +31,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tbStart" />
 
     <TextView
         android:id="@+id/tvEnter"
@@ -38,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginEnd="160dp"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -79,11 +80,10 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/enter1"
+            android:id="@+id/btnEnter1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="40dp"
             android:textSize="15sp"
@@ -130,11 +130,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/enter2"
+            android:id="@+id/btnEnter2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="40dp"
             android:textSize="15sp"
@@ -156,7 +156,7 @@
         android:id="@+id/relativeOffice"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="18dp"
         android:background="@drawable/descrptionshape3"
@@ -181,11 +181,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/enter3"
+            android:id="@+id/btnEnter3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="85dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="40dp"
             android:textSize="15sp"

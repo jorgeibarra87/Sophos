@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sendDocFragment"
+        android:title="Enviar Documentos"/>
+
+    <item
+        android:id="@+id/seeDocFragment"
+        android:title="Ver Documentos"/>
+
+    <item
+        android:id="@+id/officeFragment"
+        android:title="Oficinas"/>
+</menu>

@@ -7,7 +7,41 @@
 
     <fragment
         android:id="@+id/initFragment"
-        android:name="com.jorgeibarra.sophos.InitFragment"
+        android:name="com.jorgeibarra.sophos.LoginFragment"
         android:label="fragment_init"
-        tools:layout="@layout/fragment_init" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_initFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.jorgeibarra.sophos.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_seeDocFragment"
+            app:destination="@id/seeDocFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_sendDocFragment"
+            app:destination="@id/sendDocFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_officeFragment"
+            app:destination="@id/officeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seeDocFragment"
+        android:name="com.jorgeibarra.sophos.SeeDocFragment"
+        android:label="fragment_see_doc"
+        tools:layout="@layout/fragment_see_doc" />
+    <fragment
+        android:id="@+id/sendDocFragment"
+        android:name="com.jorgeibarra.sophos.SendDocFragment"
+        android:label="fragment_send_doc"
+        tools:layout="@layout/fragment_send_doc" />
+    <fragment
+        android:id="@+id/officeFragment"
+        android:name="com.jorgeibarra.sophos.OfficeFragment"
+        android:label="fragment_office"
+        tools:layout="@layout/fragment_office" />
 </navigation>
