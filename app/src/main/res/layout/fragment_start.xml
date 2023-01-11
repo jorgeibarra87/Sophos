@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".view.StartFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/top_menu"
+        app:title="Jorge"
+        app:titleTextColor="@color/init_text_color"/>
 
     <ImageView
         android:id="@+id/ivWelcome"

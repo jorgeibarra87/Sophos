@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/initFragment">
-
+    app:startDestination="@id/loginFragment">
     <fragment
-        android:id="@+id/initFragment"
+        android:id="@+id/loginFragment"
         android:name="com.jorgeibarra.sophos.view.LoginFragment"
-        android:label="fragment_init"
+        android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_initFragment_to_startFragment"
+            android:id="@+id/action_loginFragment_to_startFragment"
             app:destination="@id/startFragment" />
     </fragment>
     <fragment
@@ -20,27 +19,27 @@
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
-            android:id="@+id/action_startFragment_to_seeDocFragment"
-            app:destination="@id/seeDocFragment" />
+            android:id="@+id/action_startFragment_to_sendDocFragment2"
+            app:destination="@id/sendDocFragment2" />
         <action
-            android:id="@+id/action_startFragment_to_sendDocFragment"
-            app:destination="@id/sendDocFragment" />
+            android:id="@+id/action_startFragment_to_seeDocFragment2"
+            app:destination="@id/seeDocFragment2" />
         <action
-            android:id="@+id/action_startFragment_to_officeFragment"
-            app:destination="@id/officeFragment" />
+            android:id="@+id/action_startFragment_to_officeFragment2"
+            app:destination="@id/officeFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/seeDocFragment"
-        android:name="com.jorgeibarra.sophos.view.SeeDocFragment"
-        android:label="fragment_see_doc"
-        tools:layout="@layout/fragment_see_doc" />
-    <fragment
-        android:id="@+id/sendDocFragment"
+        android:id="@+id/sendDocFragment2"
         android:name="com.jorgeibarra.sophos.view.SendDocFragment"
         android:label="fragment_send_doc"
         tools:layout="@layout/fragment_send_doc" />
     <fragment
-        android:id="@+id/officeFragment"
+        android:id="@+id/seeDocFragment2"
+        android:name="com.jorgeibarra.sophos.view.SeeDocFragment"
+        android:label="fragment_see_doc"
+        tools:layout="@layout/fragment_see_doc" />
+    <fragment
+        android:id="@+id/officeFragment2"
         android:name="com.jorgeibarra.sophos.view.OfficeFragment"
         android:label="fragment_office"
         tools:layout="@layout/fragment_office" />
