@@ -8,15 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.jorgeibarra.sophos.R
-<<<<<<<< HEAD:app/src/main/java/com/jorgeibarra/sophos/view/LoginFragment.kt
-import com.jorgeibarra.sophos.databinding.FragmentLoginBinding
-========
 import com.jorgeibarra.sophos.databinding.FragmentInitBinding
->>>>>>>> temp-branch:app/src/main/java/com/jorgeibarra/sophos/view/InitFragment.kt
+
 
 class InitFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentInitBinding? = null
     private val binding get() = _binding!!
     private lateinit var navController:NavController
 
@@ -29,7 +26,7 @@ class InitFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentLoginBinding.inflate(inflater,container,false)
+        _binding = FragmentInitBinding.inflate(inflater,container,false)
         val view = binding.root
         return view
     }
@@ -37,7 +34,7 @@ class InitFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnEnter.setOnClickListener{
-            findNavController().navigate(R.id.action_loginFragment_to_startFragment)
+            findNavController().navigate(R.id.action_initFragment_to_startFragment)
         }
 
     }
