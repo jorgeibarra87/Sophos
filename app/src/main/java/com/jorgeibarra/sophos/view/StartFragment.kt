@@ -9,7 +9,6 @@ import com.jorgeibarra.sophos.databinding.FragmentStartBinding
 
 
 
-@Suppress("NAME_SHADOWING")
 class StartFragment : Fragment() {
 
     private var _binding: FragmentStartBinding? = null

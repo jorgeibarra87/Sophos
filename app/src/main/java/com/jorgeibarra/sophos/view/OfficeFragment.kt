@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.jorgeibarra.sophos.databinding.FragmentOfficeBinding
 import com.jorgeibarra.sophos.databinding.FragmentStartBinding
 
 
 class OfficeFragment : Fragment() {
 
-    private var _binding: FragmentStartBinding? = null
+    private var _binding: FragmentOfficeBinding? = null
     private val binding get() = _binding!!
 
 
@@ -20,7 +21,7 @@ class OfficeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStartBinding.inflate(inflater,container,false)
+        _binding = FragmentOfficeBinding.inflate(inflater,container,false)
         val view = binding.root
         return view
     }

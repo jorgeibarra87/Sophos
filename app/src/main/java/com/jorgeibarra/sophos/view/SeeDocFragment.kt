@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.jorgeibarra.sophos.databinding.FragmentSeeDocBinding
 import com.jorgeibarra.sophos.databinding.FragmentStartBinding
 
 
 class SeeDocFragment : Fragment() {
-    private var _binding: FragmentStartBinding? = null
+    private var _binding: FragmentSeeDocBinding? = null
     private val binding get() = _binding!!
 
 
@@ -18,7 +19,7 @@ class SeeDocFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStartBinding.inflate(inflater,container,false)
+        _binding = FragmentSeeDocBinding.inflate(inflater,container,false)
         val view = binding.root
         return view
     }
