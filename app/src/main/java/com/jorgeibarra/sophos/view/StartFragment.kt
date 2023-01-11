@@ -1,10 +1,10 @@
-package com.jorgeibarra.sophos
+package com.jorgeibarra.sophos.view
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
+import com.jorgeibarra.sophos.R
 import com.jorgeibarra.sophos.databinding.FragmentStartBinding
 
 

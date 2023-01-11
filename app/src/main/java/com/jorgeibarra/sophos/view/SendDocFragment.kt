@@ -1,4 +1,4 @@
-package com.jorgeibarra.sophos
+package com.jorgeibarra.sophos.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.jorgeibarra.sophos.databinding.FragmentStartBinding
 
-
-class SeeDocFragment : Fragment() {
+class SendDocFragment : Fragment() {
     private var _binding: FragmentStartBinding? = null
     private val binding get() = _binding!!
 
