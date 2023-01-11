@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/initFragment"
-        android:name="com.jorgeibarra.sophos.LoginFragment"
+        android:name="com.jorgeibarra.sophos.view.InitFragment"
         android:label="fragment_init"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_init" >
         <action
             android:id="@+id/action_initFragment_to_startFragment"
             app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.jorgeibarra.sophos.StartFragment"
+        android:name="com.jorgeibarra.sophos.view.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -31,17 +31,17 @@
     </fragment>
     <fragment
         android:id="@+id/seeDocFragment"
-        android:name="com.jorgeibarra.sophos.SeeDocFragment"
+        android:name="com.jorgeibarra.sophos.view.SeeDocFragment"
         android:label="fragment_see_doc"
         tools:layout="@layout/fragment_see_doc" />
     <fragment
         android:id="@+id/sendDocFragment"
-        android:name="com.jorgeibarra.sophos.SendDocFragment"
+        android:name="com.jorgeibarra.sophos.view.SendDocFragment"
         android:label="fragment_send_doc"
         tools:layout="@layout/fragment_send_doc" />
     <fragment
         android:id="@+id/officeFragment"
-        android:name="com.jorgeibarra.sophos.OfficeFragment"
+        android:name="com.jorgeibarra.sophos.view.OfficeFragment"
         android:label="fragment_office"
         tools:layout="@layout/fragment_office" />
 </navigation>

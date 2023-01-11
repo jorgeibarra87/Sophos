@@ -1,14 +1,18 @@
-package com.jorgeibarra.sophos
+package com.jorgeibarra.sophos.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.jorgeibarra.sophos.databinding.FragmentOfficeBinding
 import com.jorgeibarra.sophos.databinding.FragmentStartBinding
 
-class SendDocFragment : Fragment() {
-    private var _binding: FragmentStartBinding? = null
+
+class OfficeFragment : Fragment() {
+
+    private var _binding: FragmentOfficeBinding? = null
     private val binding get() = _binding!!
 
 
@@ -17,7 +21,7 @@ class SendDocFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStartBinding.inflate(inflater,container,false)
+        _binding = FragmentOfficeBinding.inflate(inflater,container,false)
         val view = binding.root
         return view
     }
@@ -31,4 +35,6 @@ class SendDocFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
+
+
 }
