@@ -34,7 +34,7 @@ class SeeDocFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentSeeDocBinding.inflate(inflater,container,false)
-        val view = binding.root
+
 
         setHasOptionsMenu(true)
         (activity as AppCompatActivity).supportActionBar?.title = arguments?.getString("user_name")
@@ -65,7 +65,7 @@ class SeeDocFragment : Fragment() {
         })
 
 
-        return view
+        return binding.root
     }
     private fun initRecyclerView() {
         val manager = LinearLayoutManager(context)

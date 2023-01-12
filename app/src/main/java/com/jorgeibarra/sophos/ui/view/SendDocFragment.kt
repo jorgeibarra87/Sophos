@@ -58,7 +58,7 @@ class SendDocFragment : Fragment(), AdapterView.OnItemSelectedListener {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentSendDocBinding.inflate(inflater,container,false)
-        val view = binding.root
+
 
         setHasOptionsMenu(true)
         (activity as AppCompatActivity).supportActionBar?.title = arguments?.getString("user_name")
@@ -110,7 +110,7 @@ class SendDocFragment : Fragment(), AdapterView.OnItemSelectedListener {
             postDocViewModel.postDoc(getInformationForPosting())
         })
 
-        return view
+        return binding.root
     }
 
 
