@@ -7,6 +7,32 @@
     tools:context=".ui.view.MainActivity">
 
 
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:backgroundTint="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activitiyToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_back_arrow"
+
+            >
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/NavHostFragment"
         android:layout_width="match_parent"
