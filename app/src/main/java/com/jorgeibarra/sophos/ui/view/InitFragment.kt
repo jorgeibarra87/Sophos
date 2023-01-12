@@ -67,6 +67,8 @@ class InitFragment : Fragment() {
         })
 
         }
+        binding.etEmail.setText("jorgeibarra87@gmail.com")
+        binding.etPass.setText("PIpP0553v049")
 
     }
 

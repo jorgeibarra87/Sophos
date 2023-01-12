@@ -1,8 +1,13 @@
 package com.jorgeibarra.sophos.ui.view
 
+import android.content.res.Configuration
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.jorgeibarra.sophos.R
 import com.jorgeibarra.sophos.databinding.FragmentStartBinding
@@ -26,16 +31,83 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setHasOptionsMenu(true)
+        //puts the name to the appbar
+        (activity as AppCompatActivity).supportActionBar?.title = arguments?.getString("user_name")
+        //disables the back array
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
         binding.btnEnter1.setOnClickListener{
-            findNavController().navigate(R.id.action_startFragment_to_sendDocFragment)
+            view?.findNavController()
+                ?.navigate(
+                    StartFragmentDirections.actionStartFragmentToSendDocFragment(
+                        arguments?.getString("user_email"),
+                        arguments?.getString("user_name")
+                    )
+                )
         }
         binding.btnEnter2.setOnClickListener{
-            findNavController().navigate(R.id.action_startFragment_to_seeDocFragment)
+            view?.findNavController()?.navigate(
+                StartFragmentDirections.actionStartFragmentToSeeDocFragment(
+                    arguments?.getString("user_email"),
+                    arguments?.getString("user_name")
+                )
+            )
         }
         binding.btnEnter3.setOnClickListener {
-            findNavController().navigate(R.id.action_startFragment_to_officeFragment)
+            view?.findNavController()?.navigate(
+                StartFragmentDirections.actionStartFragmentToOfficeFragment(
+                    arguments?.getString("user_email"),
+                    arguments?.getString("user_name")
+                )
+            )
         }
 
+
+
+
+
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.sendDocFragment -> {
+                view?.findNavController()
+                    ?.navigate(
+                        StartFragmentDirections.actionStartFragmentToSendDocFragment(
+                            arguments?.getString("user_email"),
+                            arguments?.getString("user_name")
+                        )
+                    )
+                true
+            }
+            R.id.seeDocFragment -> {
+                view?.findNavController()?.navigate(
+                    StartFragmentDirections.actionStartFragmentToSeeDocFragment(
+                        arguments?.getString("user_email"),
+                        arguments?.getString("user_name")
+                    )
+                )
+                true
+            }
+            R.id.officeFragment -> {
+                view?.findNavController()?.navigate(
+                    StartFragmentDirections.actionStartFragmentToOfficeFragment(
+                        arguments?.getString("user_email"),
+                        arguments?.getString("user_name")
+                    )
+                )
+                true
+            }
+
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     override fun onDestroy() {
