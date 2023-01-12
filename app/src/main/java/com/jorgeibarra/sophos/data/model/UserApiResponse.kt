@@ -1,9 +1,9 @@
-package com.jorgeibarra.sophos.model
+package com.jorgeibarra.sophos.data.model
 
-data class UserModel (
+data class UserApiResponse (
     val id: String,
     val nombre:String,
     val apellido:String,
-    val acceso:Boolean,
+    var acceso:Boolean,
     val admin:Boolean
     )

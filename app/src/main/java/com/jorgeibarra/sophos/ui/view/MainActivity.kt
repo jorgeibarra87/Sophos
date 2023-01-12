@@ -1,4 +1,4 @@
-package com.jorgeibarra.sophos.view
+package com.jorgeibarra.sophos.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

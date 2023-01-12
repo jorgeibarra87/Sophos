@@ -1,16 +1,15 @@
-package com.jorgeibarra.sophos.view
+package com.jorgeibarra.sophos.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jorgeibarra.sophos.databinding.FragmentSeeDocBinding
+import com.jorgeibarra.sophos.databinding.FragmentSendDocBinding
 import com.jorgeibarra.sophos.databinding.FragmentStartBinding
 
-
-class SeeDocFragment : Fragment() {
-    private var _binding: FragmentSeeDocBinding? = null
+class SendDocFragment : Fragment() {
+    private var _binding: FragmentSendDocBinding? = null
     private val binding get() = _binding!!
 
 
@@ -19,7 +18,7 @@ class SeeDocFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentSeeDocBinding.inflate(inflater,container,false)
+        _binding = FragmentSendDocBinding.inflate(inflater,container,false)
         val view = binding.root
         return view
     }

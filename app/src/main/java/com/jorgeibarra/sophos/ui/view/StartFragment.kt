@@ -1,4 +1,4 @@
-package com.jorgeibarra.sophos.view
+package com.jorgeibarra.sophos.ui.view
 
 import android.os.Bundle
 import android.view.*

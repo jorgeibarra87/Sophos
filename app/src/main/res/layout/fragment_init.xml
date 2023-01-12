@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.InitFragment">
+    tools:context=".ui.view.InitFragment">
 
     <ImageView
         android:id="@+id/ivInit"
@@ -65,7 +65,6 @@
         android:id="@+id/etPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
         app:passwordToggleEnabled="true"
         app:passwordToggleDrawable="@drawable/eye"
         app:passwordToggleTint="@color/init_text_color"
@@ -81,6 +80,8 @@
         app:startIconDrawable="@drawable/key_icon">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPass"
+            android:hint="Password"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/border_et"
