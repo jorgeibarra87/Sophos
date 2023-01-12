@@ -15,7 +15,6 @@ class GetDocsByIdViewModel: ViewModel() {
 
     var getDocsImgMutableLiveData = MutableLiveData<List<DocApiResponse>>()
 
-//it gets the specific data of a document by its ID
     fun getDocsViewModel (idDoc:String) {
         viewModelScope.launch {
             val response : Response<DocResponse> = RetrofitHelper.getRetrofit().create(APIGetDocById::class.java)
