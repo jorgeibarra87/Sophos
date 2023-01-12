@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvItemFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="17/08/2022" />
+
+    <TextView
+        android:id="@+id/tvItemHypen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvItemFecha"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAttachedType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvItemHypen"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="prueba" />
+
+    <TextView
+        android:id="@+id/tvNameItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvItemFecha"
+        tools:text="Jorge Armando" />
+
+    <TextView
+        android:id="@+id/tvLastNameItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvNameItem"
+        app:layout_constraintTop_toBottomOf="@+id/tvAttachedType"
+        tools:text="Ibarra Palacios" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

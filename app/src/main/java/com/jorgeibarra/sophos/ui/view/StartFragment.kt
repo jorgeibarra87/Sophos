@@ -26,11 +26,6 @@ class StartFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentStartBinding.inflate(inflater,container,false)
         val view = binding.root
-        return view
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         setHasOptionsMenu(true)
         //puts the name to the appbar
         (activity as AppCompatActivity).supportActionBar?.title = arguments?.getString("user_name")
@@ -63,14 +58,14 @@ class StartFragment : Fragment() {
             )
         }
 
-
-
-
-
+        return view
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.top_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

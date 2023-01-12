@@ -8,4 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="init_text_color">#7800FD</color>
+
+    <color name="primaryLightColor">#7800FD</color>
+    <color name="primaryDarkColor">#3A275B</color>
+    <color name= "textLight">#7800FD</color>
+    <color name="textNight">#3A275B</color>
+    <color name="sophosPink">#FE1191</color>
+    <color name="officesGreen">#05667C</color>
 </resources>
