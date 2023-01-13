@@ -23,6 +23,7 @@ class InitFragment : Fragment() {
     private val userViewModel:UserViewModel by viewModels()
 
     private var userName:String? = null
+    private var useremal:String? = null
 
     private var _binding: FragmentInitBinding? = null
     private val binding get() = _binding!!
@@ -72,18 +73,6 @@ class InitFragment : Fragment() {
 
     }
 
-    private fun goToStartFragment() {
-        view?.findNavController()
-            ?.navigate(
-                InitFragmentDirections.actionInitFragmentToStartFragment(
-                    userName,
-                    binding.etEmail.text?.trim().toString()
-                )
-            )
-
-        userViewModel.cleanLiveData()
-    }
-
     private fun savePreferences() {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         val email = binding.etEmail.text.toString().trim()
@@ -93,6 +82,20 @@ class InitFragment : Fragment() {
         data.putString("password", password)
         data.apply()
     }
+
+    private fun goToStartFragment() {
+        view?.findNavController()
+            ?.navigate(
+                InitFragmentDirections.actionGlobalStartFragment(
+                    userName,
+                    binding.etEmail.text.toString().trim()
+                )
+            )
+
+        userViewModel.cleanLiveData()
+    }
+
+
 
     override fun onDestroy() {
         super.onDestroy()

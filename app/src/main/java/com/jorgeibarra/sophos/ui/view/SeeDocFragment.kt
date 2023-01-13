@@ -72,7 +72,6 @@ class SeeDocFragment : Fragment(R.layout.fragment_see_doc) {
 
         binding.rvDocList.layoutManager = manager
         binding.rvDocList.adapter = ItemsDocsAdapter(getDocsModel.getDocsModelLiveData.value)
-
         {
             getDocsByIdViewModel.getDocsViewModel(it.IdRegistro)
         }
@@ -83,7 +82,6 @@ class SeeDocFragment : Fragment(R.layout.fragment_see_doc) {
     fun decodePicString(encodedString: String): Bitmap {
         val imageBytes = Base64.decode(encodedString, Base64.DEFAULT)
         val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-
         return decodedImage
     }
 

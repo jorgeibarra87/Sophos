@@ -16,12 +16,14 @@
             android:name="user_email"
             app:argType="string"
             app:nullable="true" />
+        <argument
+            android:name="user_name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/startFragment"
         android:name="com.jorgeibarra.sophos.ui.view.StartFragment"
-        android:label="fragment_start"
-        tools:layout="@layout/fragment_start" >
+        tools:layout="@layout/fragment_start">
         <argument
             android:name="user_name"
             app:argType="string"

@@ -35,7 +35,7 @@ class StartFragment : Fragment() {
         binding.btnEnter1.setOnClickListener{
             view?.findNavController()
                 ?.navigate(
-                    StartFragmentDirections.actionStartFragmentToSendDocFragment(
+                    StartFragmentDirections.actionGlobalSendDocFragment(
                         arguments?.getString("user_email"),
                         arguments?.getString("user_name")
                     )
@@ -43,7 +43,7 @@ class StartFragment : Fragment() {
         }
         binding.btnEnter2.setOnClickListener{
             view?.findNavController()?.navigate(
-                StartFragmentDirections.actionStartFragmentToSeeDocFragment(
+                SeeDocFragmentDirections.actionGlobalSeeDocFragment(
                     arguments?.getString("user_email"),
                     arguments?.getString("user_name")
                 )
@@ -51,7 +51,7 @@ class StartFragment : Fragment() {
         }
         binding.btnEnter3.setOnClickListener {
             view?.findNavController()?.navigate(
-                StartFragmentDirections.actionStartFragmentToOfficeFragment(
+                StartFragmentDirections.actionGlobalOfficeFragment(
                     arguments?.getString("user_email"),
                     arguments?.getString("user_name")
                 )
@@ -73,7 +73,7 @@ class StartFragment : Fragment() {
             R.id.sendDocFragment -> {
                 view?.findNavController()
                     ?.navigate(
-                        StartFragmentDirections.actionGlobalSendDocFragment(
+                        SendDocFragmentDirections.actionGlobalSendDocFragment(
                             arguments?.getString("user_email"),
                             arguments?.getString("user_name")
                         )
@@ -82,7 +82,7 @@ class StartFragment : Fragment() {
             }
             R.id.seeDocFragment -> {
                 view?.findNavController()?.navigate(
-                    StartFragmentDirections.actionGlobalSeeDocFragment(
+                    SeeDocFragmentDirections.actionGlobalSeeDocFragment(
                         arguments?.getString("user_email"),
                         arguments?.getString("user_name")
                     )
@@ -91,7 +91,7 @@ class StartFragment : Fragment() {
             }
             R.id.officeFragment -> {
                 view?.findNavController()?.navigate(
-                    StartFragmentDirections.actionGlobalOfficeFragment(
+                    OfficeFragmentDirections.actionGlobalOfficeFragment(
                         arguments?.getString("user_email"),
                         arguments?.getString("user_name")
                     )
