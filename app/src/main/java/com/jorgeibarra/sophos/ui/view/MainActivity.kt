@@ -49,9 +49,7 @@ class MainActivity : AppCompatActivity() {
         /*supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back_arrow)*/
 
-
     }
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.NavHostFragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

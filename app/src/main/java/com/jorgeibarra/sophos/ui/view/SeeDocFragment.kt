@@ -20,7 +20,7 @@ import com.jorgeibarra.sophos.ui.viewmodel.GetDocsByIdViewModel
 import com.jorgeibarra.sophos.ui.viewmodel.GetDocsViewModel
 
 
-class SeeDocFragment : Fragment() {
+class SeeDocFragment : Fragment(R.layout.fragment_see_doc) {
 
     private val getDocsModel: GetDocsViewModel by viewModels()
     private val getDocsByIdViewModel: GetDocsByIdViewModel by viewModels()
@@ -41,21 +41,18 @@ class SeeDocFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back_arrow)
 
-
-
         val email = arguments?.getString("user_email")!!
 
         getDocsModel.getDocsModelLiveData.observe(viewLifecycleOwner, Observer {
             getDocsModel.getDocsList(email)
             initRecyclerView()
-
         })
 
         getDocsModel.getDocsList(email)
 
         getDocsByIdViewModel.getDocsImgMutableLiveData.observe(viewLifecycleOwner, Observer {
             val imageBase64 = getDocsByIdViewModel.getDocsImgMutableLiveData.value?.get(0)?.Adjunto
-            if(imageBase64?.contains("9j",true) == true){ //Makes sure it is an img in base64
+            if(imageBase64?.contains("9j",true) == true){
                 val imgConverted = decodePicString(imageBase64)
                 binding.ivSeeDocsImage.setImageBitmap(imgConverted)
             }
