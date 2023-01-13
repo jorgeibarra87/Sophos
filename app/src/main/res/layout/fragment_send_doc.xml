@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="500dp"
         android:layout_marginTop="70dp"
         android:orientation="vertical"
         android:padding="15dp">
@@ -29,16 +29,16 @@
 
         <ImageView
             android:id="@+id/ivTakePhotoDocs"
+            style="@style/styleIVCameraSendDocs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            style="@style/styleIVCameraSendDocs"/>
+            android:layout_marginBottom="8dp" />
 
         <Spinner
             android:id="@+id/spDocType"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
@@ -49,18 +49,17 @@
             android:id="@+id/etIDNumberSendDocs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Numero documento"
-            android:textColorHint="@color/black"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
             android:drawableStart="@drawable/ic_badge_light"
-            android:drawablePadding="20dp"
-
-            />
+            android:hint="Numero de documento" />
 
         <EditText
             android:id="@+id/etNamesSendDocs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/black"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
             android:hint="Nombres"
 
             />
@@ -69,30 +68,33 @@
             android:id="@+id/etLastNameSendDocs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/black"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
             android:hint="Apellidos" />
 
         <EditText
             android:id="@+id/etEmailSendDocs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/black"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
             android:hint="Correo" />
 
         <EditText
             android:id="@+id/etDocTypeSendDocs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/black"
-            android:hint="Tipo" />
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:hint="Tipo de Adjunto" />
 
         <Spinner
             android:id="@+id/spDocCity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="38dp"
             android:layout_marginRight="32dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp" />
 
     </LinearLayout>
 

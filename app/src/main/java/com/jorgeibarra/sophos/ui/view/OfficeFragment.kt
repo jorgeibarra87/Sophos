@@ -4,16 +4,15 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -131,7 +130,7 @@ class OfficeFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
-    @SuppressLint("MissingPermission")//I already handle the permissions
+    @SuppressLint("MissingPermission")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -140,10 +139,8 @@ class OfficeFragment : Fragment(), OnMapReadyCallback {
         when (requestCode) {
             REQUEST_CODE_LOCATION -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 map.isMyLocationEnabled = true
-                //It Focuses the camera in the location
 
             } else {
-                //String for toast
                 val locationPermission = "Habilitar permiso de localización en configuración"
                 Toast.makeText(
                     context,
@@ -154,6 +151,47 @@ class OfficeFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.sendDocFragment -> {
+                view?.findNavController()
+                    ?.navigate(
+                        OfficeFragmentDirections.actionGlobalSendDocFragment(
+                            arguments?.getString("user_email"),
+                            arguments?.getString("user_name")
+                        )
+                    )
+                true
+            }
+            R.id.seeDocFragment -> {
+                view?.findNavController()?.navigate(
+                    OfficeFragmentDirections.actionGlobalSeeDocFragment(
+                        arguments?.getString("user_email"),
+                        arguments?.getString("user_name")
+                    )
+                )
+                true
+            }
+            R.id.officeFragment -> {
+                view?.findNavController()?.navigate(
+                    OfficeFragmentDirections.actionGlobalOfficeFragment(
+                        arguments?.getString("user_email"),
+                        arguments?.getString("user_name")
+                    )
+                )
+                true
+            }
+
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
 
 
     override fun onDestroy() {

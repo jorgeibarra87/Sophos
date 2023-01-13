@@ -10,10 +10,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -21,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.jorgeibarra.sophos.R
 import com.jorgeibarra.sophos.data.model.DocPostApiResponse
 import com.jorgeibarra.sophos.databinding.FragmentSendDocBinding
@@ -30,9 +29,8 @@ import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SendDocFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItemSelectedListener {
     private var _binding: FragmentSendDocBinding? = null
-    private val binding get() = _binding!!
 
     private val postDocViewModel: PostDocViewModel by viewModels()
 
@@ -51,6 +49,8 @@ class SendDocFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private var imageTakenBase64 = ""
 
+    private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,8 +61,9 @@ class SendDocFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
 
         setHasOptionsMenu(true)
-        (activity as AppCompatActivity).supportActionBar?.title = arguments?.getString("user_name")
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as AppCompatActivity).supportActionBar?.setTitle("Regresar")
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back_arrow)
 
         arrayAdapterTypeDocs =
             ArrayAdapter<String>(requireContext(), R.layout.spinner)
@@ -109,6 +110,22 @@ class SendDocFragment : Fragment(), AdapterView.OnItemSelectedListener {
         postDocViewModel.docModel.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             postDocViewModel.postDoc(getInformationForPosting())
         })
+
+        binding.btnSendDoc.setOnClickListener {
+            val documentSent: String = "Documento Enviado"
+            val documentSentFail: String = "Debe llenar todos los datos"
+
+            when (validateUsersDataForPost()) {
+                true -> {
+                    postDocViewModel.postDoc(getInformationForPosting())
+                    showMessage(documentSent)
+                    println(getInformationForPosting())
+                    goToFragmentSendDocs()
+                }
+                else -> showMessage(documentSentFail)
+            }
+
+        }
 
         return binding.root
     }
@@ -162,10 +179,7 @@ class SendDocFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_EXTERNAL_STORAGE
                 )
             }
-
         }
-
-
     }
 
     override fun onRequestPermissionsResult(
@@ -285,6 +299,60 @@ class SendDocFragment : Fragment(), AdapterView.OnItemSelectedListener {
             return false
         }
         return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.sendDocFragment -> {
+                view?.findNavController()
+                    ?.navigate(
+                        SendDocFragmentDirections.actionGlobalSendDocFragment(
+                            arguments?.getString("user_email"),
+                            arguments?.getString("user_name")
+                        )
+                    )
+                true
+            }
+            R.id.seeDocFragment -> {
+                view?.findNavController()?.navigate(
+                    SendDocFragmentDirections.actionGlobalSeeDocFragment(
+                        arguments?.getString("user_email"),
+                        arguments?.getString("user_name")
+                    )
+                )
+                true
+            }
+            R.id.officeFragment -> {
+                view?.findNavController()?.navigate(
+                    SendDocFragmentDirections.actionGlobalOfficeFragment(
+                        arguments?.getString("user_email"),
+                        arguments?.getString("user_name")
+                    )
+                )
+                true
+            }
+
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+    private fun goToFragmentSendDocs() {
+        view?.findNavController()
+            ?.navigate(
+                SendDocFragmentDirections.actionGlobalSendDocFragment(
+                    arguments?.getString("user_name"),
+                    arguments?.getString("user_email")
+                )
+            )
     }
 
     override fun onDestroy() {

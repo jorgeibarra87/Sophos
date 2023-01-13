@@ -27,9 +27,9 @@ class StartFragment : Fragment() {
         _binding = FragmentStartBinding.inflate(inflater,container,false)
         val view = binding.root
         setHasOptionsMenu(true)
-        //puts the name to the appbar
+
         (activity as AppCompatActivity).supportActionBar?.title = arguments?.getString("user_name")
-        //disables the back array
+
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         binding.btnEnter1.setOnClickListener{
@@ -73,7 +73,7 @@ class StartFragment : Fragment() {
             R.id.sendDocFragment -> {
                 view?.findNavController()
                     ?.navigate(
-                        StartFragmentDirections.actionStartFragmentToSendDocFragment(
+                        StartFragmentDirections.actionGlobalSendDocFragment(
                             arguments?.getString("user_email"),
                             arguments?.getString("user_name")
                         )
@@ -82,7 +82,7 @@ class StartFragment : Fragment() {
             }
             R.id.seeDocFragment -> {
                 view?.findNavController()?.navigate(
-                    StartFragmentDirections.actionStartFragmentToSeeDocFragment(
+                    StartFragmentDirections.actionGlobalSeeDocFragment(
                         arguments?.getString("user_email"),
                         arguments?.getString("user_name")
                     )
@@ -91,7 +91,7 @@ class StartFragment : Fragment() {
             }
             R.id.officeFragment -> {
                 view?.findNavController()?.navigate(
-                    StartFragmentDirections.actionStartFragmentToOfficeFragment(
+                    StartFragmentDirections.actionGlobalOfficeFragment(
                         arguments?.getString("user_email"),
                         arguments?.getString("user_name")
                     )

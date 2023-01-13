@@ -38,10 +38,6 @@ class MainActivity : AppCompatActivity() {
 
 
         when(this.resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)){
-            Configuration.UI_MODE_NIGHT_YES -> {
-                binding.activitiyToolbar.setTitleTextColor(resources.getColor(R.color.white))
-                binding.activitiyToolbar.overflowIcon = getDrawable(R.drawable.ic_menu)
-            }
             Configuration.UI_MODE_NIGHT_NO -> {
                 binding.activitiyToolbar.setTitleTextColor(resources.getColor(R.color.primaryLightColor))
                 binding.activitiyToolbar.overflowIcon = getDrawable(R.drawable.ic_menu)
@@ -50,8 +46,8 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back_arrow)
+        /*supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back_arrow)*/
 
 
     }
