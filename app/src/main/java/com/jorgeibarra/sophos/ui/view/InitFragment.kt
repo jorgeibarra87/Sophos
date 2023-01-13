@@ -152,7 +152,6 @@ class InitFragment : Fragment() {
                 super.onAuthenticationFailed()
                 Toast.makeText(context,"Fallo Autenticación" ,Toast.LENGTH_SHORT).show()
             }
-
         })
         val title = "Biometrico"
         val subtitle = "Ingreso Biometrico"
@@ -162,7 +161,6 @@ class InitFragment : Fragment() {
             .setSubtitle(subtitle)
             .setNegativeButtonText(negative)
             .build()
-
     }
 
     private fun getFingerPreferences() {
@@ -201,10 +199,7 @@ class InitFragment : Fragment() {
                 }
                 startActivityForResult(enrollIntent, 100)
             }
-
         }
-
-
     }
 
     //----------------------------------------------------------------//

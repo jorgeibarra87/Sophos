@@ -32,11 +32,12 @@ import java.util.*
 class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItemSelectedListener {
     private var _binding: FragmentSendDocBinding? = null
 
+    private val calendar: Calendar = Calendar.getInstance()
+    private val date = SimpleDateFormat("d/M/yyyy").format(calendar.time)
+
     private val postDocViewModel: PostDocViewModel by viewModels()
-
-    lateinit var arrayAdapterTypeDocs: ArrayAdapter<String>
-
-    lateinit var arrayAdapterCities: ArrayAdapter<String>
+    lateinit var arrayTypeDocs: ArrayAdapter<String>
+    lateinit var arrayCities: ArrayAdapter<String>
 
     private val PERMISSION_CAMARA: Int = 100
     private val CAMARA_REQUEST_CODE: Int = 101
@@ -44,13 +45,9 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
     private val IMAGE_REQUEST_CODE: Int = 102
     private lateinit var citySelected: String
     private lateinit var typeDocsSelected: String
-    private val calendar: Calendar = Calendar.getInstance()
-    private val currentDate = SimpleDateFormat("d/M/yyyy").format(calendar.time)
-
-    private var imageTakenBase64 = ""
+    private var imageBase64 = ""
 
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,25 +56,23 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
         // Inflate the layout for this fragment
         _binding = FragmentSendDocBinding.inflate(inflater,container,false)
 
-
         setHasOptionsMenu(true)
         (activity as AppCompatActivity).supportActionBar?.setTitle("Regresar")
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back_arrow)
 
-        arrayAdapterTypeDocs =
+        arrayTypeDocs =
             ArrayAdapter<String>(requireContext(), R.layout.spinner)
-
-        arrayAdapterCities = ArrayAdapter<String>(requireContext(), R.layout.spinner)
+        arrayCities = ArrayAdapter<String>(requireContext(), R.layout.spinner)
 
         val typeID = "Tipo de documento"
 
-        arrayAdapterTypeDocs.addAll(Arrays.asList(typeID, "CC", "TI", "PA", "CE"))
+        arrayTypeDocs.addAll(Arrays.asList(typeID, "CC", "TI", "PA", "CE"))
 
         postDocViewModel.citiesLiveData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
 
             val city: String = "Ciudad"
-            arrayAdapterCities.addAll(
+            arrayCities.addAll(
                 Arrays.asList(
                     city,
                     postDocViewModel.citiesLiveData.value?.get(0).toString(),
@@ -91,15 +86,15 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
             )
         })
 
-        binding.spDocType.adapter = arrayAdapterTypeDocs
-        binding.spDocCity.adapter = arrayAdapterCities
+        binding.spDocType.adapter = arrayTypeDocs
+        binding.spDocCity.adapter = arrayCities
 
         binding.spDocType.onItemSelectedListener = this
         binding.spDocCity.onItemSelectedListener = this
 
-        binding.etEmailSendDocs.setText(arguments?.getString("user_email"))
+        //binding.etEmailSendDocs.setText(arguments?.getString("user_email"))
 
-        binding.ivTakePhotoDocs.setOnClickListener {
+        binding.ivPhotoDocs.setOnClickListener {
             askForCameraPermission()
         }
 
@@ -113,7 +108,7 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
 
         binding.btnSendDoc.setOnClickListener {
             val documentSent: String = "Documento Enviado"
-            val documentSentFail: String = "Debe llenar todos los datos"
+            val documentSentFail: String = "Debe llenar todos los campos"
 
             when (validateData()) {
                 true -> {
@@ -132,12 +127,10 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
 
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
         when (parent?.id) {
-            R.id.spDocType -> typeDocsSelected = arrayAdapterTypeDocs.getItem(position).toString()
-            R.id.spDocCity -> citySelected = arrayAdapterCities.getItem(position).toString()
+            R.id.spDocType -> typeDocsSelected = arrayTypeDocs.getItem(position).toString()
+            R.id.spDocCity -> citySelected = arrayCities.getItem(position).toString()
         }
-
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -153,12 +146,10 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
             shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA) -> {
                 val permissionDeniedMessage = "Se nego el permiso, habilítelo en configuracion"
                 showMessage(permissionDeniedMessage)
-
             }
             else -> {
                 requestPermissions(arrayOf(android.Manifest.permission.CAMERA), PERMISSION_CAMARA)
             }
-
         }
     }
 
@@ -229,7 +220,7 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
                     showMessage(photoNotTaken)
                 } else {
                     val bitmap = data?.extras?.get("data") as Bitmap
-                    imageTakenBase64 = convertBitmapToBase64(bitmap)
+                    imageBase64 = convertBitmapToBase64(bitmap)
 
                 }
             }
@@ -237,7 +228,7 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
                 if (requestCode == IMAGE_REQUEST_CODE && resultCode == AppCompatActivity.RESULT_OK) {
 
                     val bitmap = convertUriToBitmap(data?.data)
-                    imageTakenBase64 = convertBitmapToBase64(bitmap)
+                    imageBase64 = convertBitmapToBase64(bitmap)
 
                 } else {
                     //String for message
@@ -271,7 +262,7 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
 
     private fun getInformationForPosting(): DocPostApiResponse {
         return DocPostApiResponse(
-            currentDate,
+            date,
             typeDocsSelected,
             binding.etIDNumberSendDocs.text.toString().trim(),
             binding.etNamesSendDocs.text.toString().trim(),
@@ -279,7 +270,7 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
             citySelected,
             binding.etEmailSendDocs.text.toString().trim(),
             binding.etDocTypeSendDocs.text.toString().trim(),
-            imageTakenBase64
+            imageBase64
 
         )
     }

@@ -28,7 +28,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/ivTakePhotoDocs"
+            android:id="@+id/ivPhotoDocs"
             style="@style/styleIVCameraSendDocs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
