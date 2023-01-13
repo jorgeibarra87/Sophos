@@ -94,6 +94,16 @@ class SeeDocFragment : Fragment(R.layout.fragment_see_doc) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_global_startFragment -> {
+                view?.findNavController()
+                    ?.navigate(
+                        SeeDocFragmentDirections.actionGlobalStartFragment(
+                            arguments?.getString("user_email"),
+                            arguments?.getString("user_name")
+                        )
+                    )
+                true
+            }
             R.id.sendDocFragment -> {
                 view?.findNavController()
                     ?.navigate(

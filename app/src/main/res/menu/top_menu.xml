@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/xmlOptionsMenu">
     <item
+        android:id="@+id/action_global_startFragment"
+        android:title="Inicio"/>
+    <item
         android:id="@+id/sendDocFragment"
         android:title="Enviar Documentos"/>
 

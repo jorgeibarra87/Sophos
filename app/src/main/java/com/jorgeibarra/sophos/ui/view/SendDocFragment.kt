@@ -115,7 +115,7 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
             val documentSent: String = "Documento Enviado"
             val documentSentFail: String = "Debe llenar todos los datos"
 
-            when (validateUsersDataForPost()) {
+            when (validateData()) {
                 true -> {
                     postDocViewModel.postDoc(getInformationForPosting())
                     showMessage(documentSent)
@@ -284,8 +284,7 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
         )
     }
 
-
-    private fun validateUsersDataForPost(): Boolean {
+    private fun validateData(): Boolean {
         if (getInformationForPosting().TipoId == "Tipo de documento" ||
             getInformationForPosting().Identificacion == "" ||
             getInformationForPosting().Nombre == "" ||
@@ -310,6 +309,16 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_global_startFragment -> {
+                view?.findNavController()
+                    ?.navigate(
+                        SendDocFragmentDirections.actionGlobalStartFragment(
+                            arguments?.getString("user_email"),
+                            arguments?.getString("user_name")
+                        )
+                    )
+                true
+            }
             R.id.sendDocFragment -> {
                 view?.findNavController()
                     ?.navigate(
@@ -354,6 +363,10 @@ class SendDocFragment : Fragment(R.layout.fragment_send_doc), AdapterView.OnItem
                 )
             )
     }
+
+    //-----------------------------------FINGERPRINT---------------------------------------//
+
+    //-------------------------------------------------------------------------------------//
 
     override fun onDestroy() {
         super.onDestroy()

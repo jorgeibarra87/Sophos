@@ -45,7 +45,6 @@
     <fragment
         android:id="@+id/seeDocFragment"
         android:name="com.jorgeibarra.sophos.ui.view.SeeDocFragment"
-        android:label="fragment_see_doc"
         tools:layout="@layout/fragment_see_doc">
         <argument
             android:name="user_name"
@@ -59,7 +58,6 @@
     <fragment
         android:id="@+id/sendDocFragment"
         android:name="com.jorgeibarra.sophos.ui.view.SendDocFragment"
-        android:label="fragment_send_doc"
         tools:layout="@layout/fragment_send_doc">
         <argument
             android:name="user_name"
@@ -73,7 +71,6 @@
     <fragment
         android:id="@+id/officeFragment"
         android:name="com.jorgeibarra.sophos.ui.view.OfficeFragment"
-        android:label="fragment_office"
         tools:layout="@layout/fragment_office">
         <argument
             android:name="user_name"
